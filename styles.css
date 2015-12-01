@@ -31,9 +31,25 @@ div#content {
 div#content.text {
     margin: 15px;
 }
-div#togglingBar.div {
-  background-color: maroon;
+div#reminderWindow {
+  display: none;
+  background-color: crimson;
+}
+div#alarmWindow {
+  display: none;
+  background-color: crimson;
+}
+button#toggleReminderButton {
+  float: left;
+  background: maroon;
   border: 1px solid purple;
+  color: white;
+}
+button#toggleAlarmButton {
+  float: right;
+  background: maroon;
+  border: 1px solid purple;
+  color: white;
 }
 button#toggleBar {
   background-color: purple;

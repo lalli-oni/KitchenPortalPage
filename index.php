@@ -17,11 +17,16 @@
               <script>
                 function toggleReminderVisibility() {
                   document.getElementById("title").innerHTML = "Reminder";
-                  var bar = document.getElementById("reminderWindow");
-                  if (bar.style.display != 'none') {
-                    bar.style.display = 'none';
+                  var alarmWindow = document.getElementById("alarmWindow");
+                  var reminderWindow = document.getElementById("reminderWindow");
+                  if (alarmWindow.style.display != "none") {
+                    alarmWindow.style.display = "none";
+                      reminderWindow.style.display = "block";
+                  } else if (reminderWindow.style.display != "none") {
+                    reminderWindow.style.display = "none";
+                      alarmWindow.style.display = "none";
                   } else {
-                    bar.style.display = 'block';
+                    reminderWindow.style.display = "block";
                   }
                 }
                 </script>
@@ -31,11 +36,16 @@
               <script>
                 function toggleAlarmVisibility() {
                   document.getElementById("title").innerHTML = "Alarm";
-                  var bar = document.getElementById("alarmWindow");
-                  if (bar.style.display != 'none') {
-                    bar.style.display = 'none';
+                  var alarmWindow = document.getElementById("alarmWindow");
+                  var reminderWindow = document.getElementById("reminderWindow");
+                  if (reminderWindow.style.display != "none") {
+                    reminderWindow.style.display = "none";
+                      alarmWindow.style.display = "block";
+                  } else if (alarmWindow.style.display != "none") {
+                    alarmWindow.style.display = "none";
+                      reminderWindow.style.display = "none";
                   } else {
-                    bar.style.display = 'block';
+                    alarmWindow.style.display = "block";
                   }
                 }
                 </script>
@@ -44,11 +54,15 @@
       </div>
       <div id=alertWindow>
         <div id=reminderWindow>
-
+          <p>reminderWindow</p>
         </div>
           <div id=alarmWindow>
-
+            <p>alarmWindow</p>
           </div>
+      </div>
+      <div id=recipeWindow>
+        <form>bob</form>
+        <p>recipe text</p>
       </div>
     </div>
   </div>
