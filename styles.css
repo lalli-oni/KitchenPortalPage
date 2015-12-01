@@ -1,0 +1,36 @@
+body {
+    background: gray;
+}
+.clearfix {
+    overflow:auto;
+}
+
+div#mother {
+    margin: 10px;
+}
+div#topBar {
+    margin: 10px;
+}
+div#navBar {
+    float:left;
+    border: dotted 1px red;
+    border-radius: 25px;
+    background: white;
+    margin: 10px;
+    padding: 5px;
+    padding-right: 10px;
+}
+div#content {
+    border: 2px dotted purple;
+    border-radius: 5px;
+    background: cornsilk;
+    margin: 10px;
+    padding: 5px;
+}
+div#content.text {
+    margin: 15px;
+}
+
+h1{
+    text-align: center;
+}
