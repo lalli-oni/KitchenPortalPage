@@ -1,37 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
   <div id=mother>
     <div id=topBar>
-      <h1>Welcome to this site</h1>
+      <h1 id=title>Welcome to this site</h1>
     </div>
-    <div id=navBar>
-      <ol>
-        <li>
-          Bobs
-        </li>
-        <li>
-          Bob
-        </li>
-        <li>
-          Bob
-        </li>
-        <li>
-          Bob
-        </li>
-      </ol>
+    <div id=>
+    <button id=toggleButton onclick="toggleVisibility()">Toggle Navbar</button>
     </div>
     <div id=content>
-      <?php
-        $name = "bob";
-        for($i = 10; $i--; $i > 0)
-        {
-            echo "<p>Gobbledigook er skemmtilegt ruglumbull</p>";
-        }
-      ?>
+      <div id=togglingBar>
+          <div id=toggleReminder float=left>
+              <script>
+                function toggleReminderVisibility() {
+                  document.getElementById("title").innerHTML = "Reminder";
+                  var bar = document.getElementById("reminderWindow");
+                  if (bar.style.display != 'none') {
+                    bar.style.display = 'none';
+                  } else {
+                    bar.style.display = 'block';
+                  }
+                }
+                </script>
+                <button id=toggleReminderButton onclick="toggleReminderVisibility()">Reminder</button>
+          </div>
+          <div id=toggleTimer float=right>
+              <script>
+                function toggleAlarmVisibility() {
+                  document.getElementById("title").innerHTML = "Alarm";
+                  var bar = document.getElementById("alarmWindow");
+                  if (bar.style.display != 'none') {
+                    bar.style.display = 'none';
+                  } else {
+                    bar.style.display = 'block';
+                  }
+                }
+                </script>
+                <button id=toggleAlarmButton onclick="toggleAlarmVisibility()">Alarm</button>
+          </div>
+      </div>
+      <div id=alertWindow>
+        <div id=reminderWindow>
+
+        </div>
+          <div id=alarmWindow>
+
+          </div>
+      </div>
     </div>
   </div>
   </body>

@@ -19,6 +19,7 @@ div#navBar {
     margin: 10px;
     padding: 5px;
     padding-right: 10px;
+    display: block;
 }
 div#content {
     border: 2px dotted purple;
@@ -30,7 +31,14 @@ div#content {
 div#content.text {
     margin: 15px;
 }
-
+div#togglingBar.div {
+  background-color: maroon;
+  border: 1px solid purple;
+}
+button#toggleBar {
+  background-color: purple;
+  color: red;
+}
 h1{
     text-align: center;
 }
