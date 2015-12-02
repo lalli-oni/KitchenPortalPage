@@ -6,14 +6,18 @@
 <body>
   <div id=mother>
     <div id=topBar>
-      <h1 id=title>Welcome to this site</h1>
-    </div>
-    <div id=>
-    <button id=toggleButton onclick="toggleVisibility()">Toggle Navbar</button>
+      <div id=hud>
+        <p id=temp>21°C</p>
+        <img id=lightPic src="./assets/sunPlaceholder.PNG"/>
+      </div>
+      <h1 id=title>Kitchen Portal</h1>
+        <div id=logo>
+          <img id=logoPic src="./assets/kpLogoPlaceholder.jpg"/>
+        </div>
     </div>
     <div id=content>
       <div id=togglingBar>
-          <div id=toggleReminder float=left>
+          <div id=toggleReminderWrapper>
               <script>
                 function toggleReminderVisibility() {
                   document.getElementById("title").innerHTML = "Reminder";
@@ -32,7 +36,7 @@
                 </script>
                 <button id=toggleReminderButton onclick="toggleReminderVisibility()">Reminder</button>
           </div>
-          <div id=toggleTimer float=right>
+          <div id=toggleAlarmWrapper>
               <script>
                 function toggleAlarmVisibility() {
                   document.getElementById("title").innerHTML = "Alarm";
@@ -61,8 +65,26 @@
           </div>
       </div>
       <div id=recipeWindow>
-        <form>bob</form>
-        <p>recipe text</p>
+        <div id=recipeInpupWrapper>
+          <form>
+            Recipe name:<br>
+            <input type="text" name="recipeName"><br>
+          </form>
+          <script>
+            function searchRecipe() {
+              document.getElementById("title").innerHTML = "recipeResults";
+              var recipeResultWindow = document.getElementById("recipeResultWindow");
+              if (recipeResultWindow.style.display != "none") {
+                  recipeResultWindow.style.display = "block";
+              }
+            }
+            </script>
+        <button onclick="searchRecipe()">Search<br>
+        </div>
+        <div id=recipeResultWindow>
+          <p>lol alarm</p>
+            <p>recip2</p>
+        </div>
       </div>
     </div>
   </div>

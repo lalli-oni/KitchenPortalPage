@@ -1,25 +1,48 @@
 body {
-    background: gray;
+    background: #742C00;
 }
 .clearfix {
     overflow:auto;
 }
-
 div#mother {
-    margin: 10px;
+  border: 8px orange solid;
+  border-radius: 10px;
+  margin: 20px;
+  margin-top: 40px;
+  padding: 0px;
+  background-color: #6C310B;
 }
 div#topBar {
-    margin: 10px;
+  margin: 10px;
+  margin-top: -20px;
 }
-div#navBar {
-    float:left;
-    border: dotted 1px red;
-    border-radius: 25px;
-    background: white;
-    margin: 10px;
-    padding: 5px;
-    padding-right: 10px;
-    display: block;
+div#hud {
+  float:left;
+  margin-top: -30px;
+  margin-left: 10px;
+}
+p#temp {
+  color: white;
+  font-size: 30px;
+  font-family: sans-serif;
+}
+img#lightPic {
+  width: 60px;
+  height: 60px;
+  margin-top: -20px;
+}
+h1#title {
+  font-family: fantasy;
+  font-size: 60px;
+  text-align: center;
+  color: orange;
+}
+img#logoPic {
+  float: right;
+  width: 80px;
+  height: 80px;
+  margin-top: -110px;
+  margin-right: 10px;
 }
 div#content {
     border: 2px dotted purple;
@@ -39,22 +62,42 @@ div#alarmWindow {
   display: none;
   background-color: crimson;
 }
-button#toggleReminderButton {
+div#togglingBar {
+
+}
+div#toggleReminderWrapper {
   float: left;
+  width: 49%;
+}
+div#toggleAlarmWrapper {
+  float: right;
+  width: 49%;
+}
+button#toggleReminderButton {
   background: maroon;
-  border: 1px solid purple;
   color: white;
+  width: 100%;
+  height: 50px;
+  display: table-cell;
 }
 button#toggleAlarmButton {
-  float: right;
   background: maroon;
-  border: 1px solid purple;
   color: white;
+  width: 100%;
+  height: 50px;
+  display: table-cell;
 }
-button#toggleBar {
-  background-color: purple;
-  color: red;
+div#recipeResultWindow {
+  display: none;
 }
-h1{
+button {
+    border-width: 2px;
+    border-color: white;
+    border-radius: 4px;
+    border-style: solid;
     text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
 }
