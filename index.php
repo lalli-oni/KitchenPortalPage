@@ -20,7 +20,7 @@
           <div id=toggleReminderWrapper>
               <script>
                 function toggleReminderVisibility() {
-                  document.getElementById("title").innerHTML = "Reminder";
+                  //document.getElementById("title").innerHTML = "Reminder";
                   var alarmWindow = document.getElementById("alarmWindow");
                   var reminderWindow = document.getElementById("reminderWindow");
                   if (alarmWindow.style.display != "none") {
@@ -39,7 +39,7 @@
           <div id=toggleAlarmWrapper>
               <script>
                 function toggleAlarmVisibility() {
-                  document.getElementById("title").innerHTML = "Alarm";
+                  //document.getElementById("title").innerHTML = "Alarm";
                   var alarmWindow = document.getElementById("alarmWindow");
                   var reminderWindow = document.getElementById("reminderWindow");
                   if (reminderWindow.style.display != "none") {

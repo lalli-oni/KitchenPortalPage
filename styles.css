@@ -45,25 +45,28 @@ img#logoPic {
   margin-right: 10px;
 }
 div#content {
-    border: 2px dotted purple;
+    border: 3px ridge #6C310B;
     border-radius: 5px;
     background: cornsilk;
     margin: 10px;
-    padding: 5px;
+    padding: 10px;
 }
 div#content.text {
     margin: 15px;
 }
 div#reminderWindow {
   display: none;
-  background-color: crimson;
+  background-color: #DB8854;
+  margin: 10px;
+  margin-top: 65px;
+  padding: 10px;
 }
 div#alarmWindow {
   display: none;
-  background-color: crimson;
-}
-div#togglingBar {
-
+  background-color: #DB8854;
+  margin: 10px;
+  margin-top: 65px;
+  padding: 10px;
 }
 div#toggleReminderWrapper {
   float: left;
