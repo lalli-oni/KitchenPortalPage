@@ -81,7 +81,7 @@ class Service1 extends SoapClient {
                                     'guid' => 'guid',
                                    );
 
-  public function Service1($wsdl = "http://kitchenportal.cloudapp.net/Service1.svc?wsdl", $options = array()) {
+  public function Service1($wsdl = "http://localhost:51211/Service1.svc?wsdl", $options = array()) {
     foreach(self::$classmap as $key => $value) {
       if(!isset($options['classmap'][$key])) {
         $options['classmap'][$key] = $value;
