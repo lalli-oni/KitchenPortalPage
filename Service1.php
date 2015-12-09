@@ -1,7 +1,46 @@
 <?php
-class CompositeType {
-  public $BoolValue; // boolean
-  public $StringValue; // string
+class DataModel {
+  public $Light; // int
+  public $SensorName; // string
+  public $Temperature; // int
+  public $TimeOfData; // dateTime
+}
+
+class SaveDataAsync {
+  public $data; // DataModel
+}
+
+class SaveDataAsyncResponse {
+  public $SaveDataAsyncResult; // boolean
+}
+
+class CancelReminder {
+}
+
+class CancelReminderResponse {
+  public $CancelReminderResult; // boolean
+}
+
+class GetLastRoomData {
+}
+
+class GetLastRoomDataResponse {
+  public $GetLastRoomDataResult; // ArrayOfint
+}
+
+class GetLastOvenData {
+}
+
+class GetLastOvenDataResponse {
+  public $GetLastOvenDataResult; // int
+}
+
+class ReminderAsync {
+  public $desiredTemperature; // int
+}
+
+class ReminderAsyncResponse {
+  public $ReminderAsyncResult; // boolean
 }
 
 class char {
@@ -11,54 +50,6 @@ class duration {
 }
 
 class guid {
-}
-
-class DateTimeOffset {
-  public $DateTime; // dateTime
-  public $OffsetMinutes; // short
-}
-
-class TableEntity {
-  public $ETag; // string
-  public $PartitionKey; // string
-  public $RowKey; // string
-  public $Timestamp; // DateTimeOffset
-}
-
-class SensorEntity {
-  public $light; // int
-  public $teperature; // int
-}
-
-class GetData {
-  public $value; // int
-}
-
-class GetDataResponse {
-  public $GetDataResult; // string
-}
-
-class GetDataUsingDataContract {
-  public $composite; // CompositeType
-}
-
-class GetDataUsingDataContractResponse {
-  public $GetDataUsingDataContractResult; // CompositeType
-}
-
-class SaveData {
-  public $sensor; // SensorEntity
-}
-
-class SaveDataResponse {
-}
-
-class SetReminder {
-  public $temperature; // int
-}
-
-class SetReminderResponse {
-  public $SetReminderResult; // boolean
 }
 
 
@@ -74,24 +65,23 @@ class SetReminderResponse {
 class Service1 extends SoapClient {
 
   private static $classmap = array(
-                                    'CompositeType' => 'CompositeType',
+                                    'DataModel' => 'DataModel',
+                                    'SaveDataAsync' => 'SaveDataAsync',
+                                    'SaveDataAsyncResponse' => 'SaveDataAsyncResponse',
+                                    'CancelReminder' => 'CancelReminder',
+                                    'CancelReminderResponse' => 'CancelReminderResponse',
+                                    'GetLastRoomData' => 'GetLastRoomData',
+                                    'GetLastRoomDataResponse' => 'GetLastRoomDataResponse',
+                                    'GetLastOvenData' => 'GetLastOvenData',
+                                    'GetLastOvenDataResponse' => 'GetLastOvenDataResponse',
+                                    'ReminderAsync' => 'ReminderAsync',
+                                    'ReminderAsyncResponse' => 'ReminderAsyncResponse',
                                     'char' => 'char',
                                     'duration' => 'duration',
                                     'guid' => 'guid',
-                                    'DateTimeOffset' => 'DateTimeOffset',
-                                    'TableEntity' => 'TableEntity',
-                                    'SensorEntity' => 'SensorEntity',
-                                    'GetData' => 'GetData',
-                                    'GetDataResponse' => 'GetDataResponse',
-                                    'GetDataUsingDataContract' => 'GetDataUsingDataContract',
-                                    'GetDataUsingDataContractResponse' => 'GetDataUsingDataContractResponse',
-                                    'SaveData' => 'SaveData',
-                                    'SaveDataResponse' => 'SaveDataResponse',
-                                    'SetReminder' => 'SetReminder',
-                                    'SetReminderResponse' => 'SetReminderResponse',
                                    );
 
-  public function Service1($wsdl = "http://localhost:51211/Service1.svc?wsdl", $options = array()) {
+  public function Service1($wsdl = "http://kitchenportal.cloudapp.net/Service1.svc?wsdl", $options = array()) {
     foreach(self::$classmap as $key => $value) {
       if(!isset($options['classmap'][$key])) {
         $options['classmap'][$key] = $value;
@@ -103,11 +93,11 @@ class Service1 extends SoapClient {
   /**
    *  
    *
-   * @param GetData $parameters
-   * @return GetDataResponse
+   * @param SaveDataAsync $parameters
+   * @return SaveDataAsyncResponse
    */
-  public function GetData(GetData $parameters) {
-    return $this->__soapCall('GetData', array($parameters),       array(
+  public function SaveDataAsync(SaveDataAsync $parameters) {
+    return $this->__soapCall('SaveDataAsync', array($parameters),       array(
             'uri' => 'http://tempuri.org/',
             'soapaction' => ''
            )
@@ -117,11 +107,11 @@ class Service1 extends SoapClient {
   /**
    *  
    *
-   * @param GetDataUsingDataContract $parameters
-   * @return GetDataUsingDataContractResponse
+   * @param CancelReminder $parameters
+   * @return CancelReminderResponse
    */
-  public function GetDataUsingDataContract(GetDataUsingDataContract $parameters) {
-    return $this->__soapCall('GetDataUsingDataContract', array($parameters),       array(
+  public function CancelReminder(CancelReminder $parameters) {
+    return $this->__soapCall('CancelReminder', array($parameters),       array(
             'uri' => 'http://tempuri.org/',
             'soapaction' => ''
            )
@@ -131,11 +121,11 @@ class Service1 extends SoapClient {
   /**
    *  
    *
-   * @param SaveData $parameters
-   * @return SaveDataResponse
+   * @param GetLastRoomData $parameters
+   * @return GetLastRoomDataResponse
    */
-  public function SaveData(SaveData $parameters) {
-    return $this->__soapCall('SaveData', array($parameters),       array(
+  public function GetLastRoomData(GetLastRoomData $parameters) {
+    return $this->__soapCall('GetLastRoomData', array($parameters),       array(
             'uri' => 'http://tempuri.org/',
             'soapaction' => ''
            )
@@ -145,11 +135,25 @@ class Service1 extends SoapClient {
   /**
    *  
    *
-   * @param SetReminder $parameters
-   * @return SetReminderResponse
+   * @param GetLastOvenData $parameters
+   * @return GetLastOvenDataResponse
    */
-  public function SetReminder(SetReminder $parameters) {
-    return $this->__soapCall('SetReminder', array($parameters),       array(
+  public function GetLastOvenData(GetLastOvenData $parameters) {
+    return $this->__soapCall('GetLastOvenData', array($parameters),       array(
+            'uri' => 'http://tempuri.org/',
+            'soapaction' => ''
+           )
+      );
+  }
+
+  /**
+   *  
+   *
+   * @param ReminderAsync $parameters
+   * @return ReminderAsyncResponse
+   */
+  public function ReminderAsync(ReminderAsync $parameters) {
+    return $this->__soapCall('ReminderAsync', array($parameters),       array(
             'uri' => 'http://tempuri.org/',
             'soapaction' => ''
            )
