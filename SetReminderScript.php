@@ -1,8 +1,14 @@
 <?php
-ignore_user_abort(FALSE);
+ignore_user_abort(false);
 set_time_limit(0);
 error_reporting(E_ALL & ~E_NOTICE);
 $var = $_GET["value"];
+function get(){
+        $TemperatureGetter = new Service1();
+        $parameters = new GetLastOvenData();
+        $temperature = $TemperatureGetter->GetLastOvenData($parameters);
+        return $temperature->GetLastOvenDataResult;
+    }
 if(!is_numeric($var))
 {
     echo 'wrong format';
@@ -13,20 +19,14 @@ elseif ($var<0 || $var >400) {
     return;
 }
 else {
-   require_once './Service1.php';
-$ReminderSetter = new Service1;
-$parameters = new SetReminder();
-$parameters->temperature = $var;
-$response =  $ReminderSetter->SetReminder($parameters);
-$response->SetReminderResult;
-//settype($response, "integer");
+require './Service1.php';  
 
-if($response == 1){
-    echo 'Done';
-   
-}
-elseif ($response == 0) {
-    echo 'Error';
+    while (TRUE){  
+        if(get() == $var){
+            echo 'Done';
+            return FALSE;
+        }
+        session_write_close();
+    }
     
-}
 }
