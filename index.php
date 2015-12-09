@@ -10,11 +10,11 @@
         <p id=temp>21°C</p>
         <img id=lightPic src="./assets/sunPlaceholder.PNG"/>
       </div>
-      <h1 id=title>Kitchen Portal</h1>
-        <div id=logo>
-          <img id=logoPic src="./assets/kpLogoPlaceholder.jpg"/>
+        <div >
+            <img id=header  src="./assets/KitchenPortal.jpg"/>
         </div>
     </div>
+       
     <div id=content>
       <div id=togglingBar>
           <div id=toggleReminderWrapper>
@@ -53,15 +53,17 @@
                   }
                 }
                 </script>
-                <button id=toggleAlarmButton onclick="toggleAlarmVisibility()">Alarm</button>
+                <button id=toggleAlarmButton onclick="toggleAlarmVisibility()">Timer</button>
           </div>
       </div>
       <div id=alertWindow>
         <div id=reminderWindow>
-          <p>reminderWindow</p>
+            <input type="text"> 
+            <button id=setalarmbutton  onclick="SetReminder()">Set Reminder</button>
+              
         </div>
           <div id=alarmWindow>
-            <p>alarmWindow</p>
+            <p>TimerWindow</p>
           </div>
       </div>
       <div id=recipeWindow>
@@ -79,13 +81,11 @@
               }
             }
             </script>
-        <button onclick="searchRecipe()">Search<br>
-        </div>
-        <div id=recipeResultWindow>
+        <button id=searchButton onclick="searchRecipe()">Search<br>
+         <div id=recipeResultWindow>
           <p>lol alarm</p>
             <p>recip2</p>
-        </div>
-      </div>
+        </div>       
     </div>
   </div>
   </body>
