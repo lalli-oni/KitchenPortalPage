@@ -11,7 +11,7 @@
         <img id=lightPic src="./assets/sunPlaceholder.PNG"/>
       </div>
         <div >
-            <img id=header  src="./assets/KitchenPortal.jpg"/>
+            <center><img id=header  src="./assets/KitchenPortal.jpg"/></center>
         </div>
     </div>
        
