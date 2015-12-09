@@ -1,75 +1,72 @@
 body {
-    background: powderblue;
+    background: #742C00;
 }
 .clearfix {
     overflow:auto;
 }
 div#mother {
-  border: 8px darkblue;
+  border: 8px orange solid;
   border-radius: 10px;
-  margin: 30px 200px 30px 200px ;
+  margin: 20px;
+  margin-top: 40px;
   padding: 0px;
-  background-color: white;
+  background-color: #6C310B;
 }
 div#topBar {
   margin: 10px;
   margin-top: -20px;
-
 }
 div#hud {
-  float:right;
-  margin-top: 80px;
-  margin-left: -10px;
-  margin-right:20px;
-  
+  float:left;
+  margin-top: -30px;
+  margin-left: 10px;
 }
 p#temp {
-  color: black;
+  color: white;
   font-size: 30px;
   font-family: sans-serif;
-  
 }
 img#lightPic {
   width: 60px;
   height: 60px;
-  margin-top: -30px;
+  margin-top: -20px;
 }
-img#header{
-float:center;
-width:700px;
-height:200px;
-margin-top:10px;
-margin-left:100px;
-margin-bottom:-10px;
+h1#title {
+  font-family: fantasy;
+  font-size: 60px;
+  text-align: center;
+  color: orange;
+}
+img#logoPic {
+  float: right;
+  width: 80px;
+  height: 80px;
+  margin-top: -110px;
+  margin-right: 10px;
 }
 div#content {
-    border: 3px ridge deepskyblue;
+    border: 3px ridge #6C310B;
     border-radius: 5px;
-    background: white;
+    background: cornsilk;
     margin: 10px;
     padding: 10px;
-    
 }
 div#content.text {
     margin: 15px;
 }
 div#reminderWindow {
   display: none;
-  background-color:azure;
-  margin-right:-3px;
-  margin-left:7px;
+  background-color: #DB8854;
+  margin: 10px;
   margin-top: 65px;
   padding: 10px;
-  border-radius: 10px;
 }
 div#alarmWindow {
   display: none;
-  background-color: azure;
-  margin-right:-3px;
-  margin-left:7px;
+  background-color: #DB8854;
+  margin: 10px;
   margin-top: 65px;
   padding: 10px;
-  border-radius: 10px;
 }
 div#toggleReminderWrapper {
   float: left;
@@ -80,27 +77,23 @@ div#toggleAlarmWrapper {
   width: 49%;
 }
 button#toggleReminderButton {
-  background: deepskyblue;
+  background: maroon;
   color: white;
   width: 100%;
   height: 50px;
   display: table-cell;
-  margin-left:6px;
-  font:cortana;
 }
 button#toggleAlarmButton {
-  background: deepskyblue;
+  background: maroon;
   color: white;
   width: 100%;
   height: 50px;
   display: table-cell;
-  margin-left:6px;
 }
 div#recipeResultWindow {
   display: none;
 }
-
-button  {
+button {
     border-width: 2px;
     border-color: white;
     border-radius: 4px;
@@ -110,10 +103,4 @@ button  {
     display: inline-block;
     font-size: 16px;
     margin: 5px;
-    margin-left: -2px;
-}
-div#recipeWindow
-{
-    margin:10px;
-    margin-top:15px;
 }
