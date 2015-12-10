@@ -21,13 +21,13 @@ div#hud {
   margin-top: 80px;
   margin-left: -10px;
   margin-right:20px;
-  
+
 }
 p#temp {
   color: black;
   font-size: 30px;
   font-family: sans-serif;
-  
+
 }
 img#lightPic {
   width: 60px;
@@ -48,7 +48,7 @@ div#content {
     background: white;
     margin: 10px;
     padding: 10px;
-    
+
 }
 div#content.text {
     margin: 15px;
@@ -116,4 +116,8 @@ div#recipeWindow
 {
     margin:10px;
     margin-top:15px;
+}
+div.fakeRecipeWrapper {
+  border: 1px ridge deepskyblue;
+  margin: 10px;
 }

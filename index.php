@@ -14,13 +14,12 @@
             <img id=header  src="./assets/KitchenPortal.jpg"/>
         </div>
     </div>
-       
+
     <div id=content>
       <div id=togglingBar>
           <div id=toggleReminderWrapper>
               <script>
                 function toggleReminderVisibility() {
-                  //document.getElementById("title").innerHTML = "Reminder";
                   var alarmWindow = document.getElementById("alarmWindow");
                   var reminderWindow = document.getElementById("reminderWindow");
                   if (alarmWindow.style.display != "none") {
@@ -39,7 +38,6 @@
           <div id=toggleAlarmWrapper>
               <script>
                 function toggleAlarmVisibility() {
-                  //document.getElementById("title").innerHTML = "Alarm";
                   var alarmWindow = document.getElementById("alarmWindow");
                   var reminderWindow = document.getElementById("reminderWindow");
                   if (reminderWindow.style.display != "none") {
@@ -58,35 +56,46 @@
       </div>
       <div id=alertWindow>
         <div id=reminderWindow>
-            <input type="text"> 
+            <input type="text">
             <button id=setalarmbutton  onclick="SetReminder()">Set Reminder</button>
-              
+
         </div>
           <div id=alarmWindow>
             <p>TimerWindow</p>
           </div>
       </div>
       <div id=recipeWindow>
-        <div id=recipeInpupWrapper>
+        <div id=recipeInputWrapper>
           <form>
             Recipe name:<br>
             <input type="text" name="recipeName"><br>
           </form>
           <script>
             function searchRecipe() {
-              document.getElementById("title").innerHTML = "recipeResults";
               var recipeResultWindow = document.getElementById("recipeResultWindow");
               if (recipeResultWindow.style.display != "none") {
                   recipeResultWindow.style.display = "block";
+
+                  var new_fakeRecipeBox = document.createElement('div');
+                  console.log(new_fakeRecipeBox);
+                  new_fakeRecipeBox.className = "fakeRecipeWrapper";
+                  console.log(new_fakeRecipeBox);
+                  var fakeRecipeText = document.createTextNode("This is a recipe");
+                  console.log(new_fakeRecipeBox);
+                  fakeRecipeText.className = "fakeRecipe";
+                  console.log(new_fakeRecipeBox);
+                  new_fakeRecipeBox.appendChild(fakeRecipeText);
+                  console.log(new_fakeRecipeBox);
+                  console.log(recipeResultWindow);
+                  recipeResultWindow.appendChild(new_fakeRecipeBox);
               }
             }
             </script>
         <button id=searchButton onclick="searchRecipe()">Search<br>
-         <div id=recipeResultWindow>
-          <p>lol alarm</p>
-            <p>recip2</p>
-        </div>       
+
     </div>
+    <div id=recipeResultWindow>
+   </div>
   </div>
   </body>
   </html>
