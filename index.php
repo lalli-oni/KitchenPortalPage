@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="css/jquery.countdown.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script type="text/javascript" src="js/jquery.plugin.js"></script> 
+        <script type="text/javascript" src="js/jquery.plugin.js"></script>
         <script type="text/javascript" src="js/jquery.countdown.js"></script>
 <script>
 $(document).ready(function(){
@@ -14,39 +14,31 @@ $(document).ready(function(){
 });
 
      var req;
- 
+
     function cancelReminder(){
           // req.abort();
             $.post("CancelReminderScript.php",function (data){
                 alert(data);
             });
-        }; 
-        
-        
-        $(".btn1").click(function(){ 
+        };
+
+
+        $(".btn1").click(function(){
            $.get("SetReminderScript.php?value=" + $("#input1").val(),function (data){
                     $(".ht").text(data);
-                    
                 });
-   });       
-   
+   });
+
    $(".btn2").click(function (){
       cancelReminder();
   });
-  
-  $(".btnCountdown").click(function (){        
+
+  $(".btnCountdown").click(function (){
 
     valuesCheck();
-    //$(".countdowndiv").countdown({until: '+'+ $(".hoursinput").val() +'h'});
-            
   });
-//  function  valuesCheck(){
-//      $.get("ValueCheck", data: '{"hours": }');
-//      
-//  };
-//  
   });
-  
+
 </script>
         <title>Kitchen Portal</title>
     </head>
@@ -56,14 +48,14 @@ $(document).ready(function(){
                 <h1>Set reminder</h1>
             </div>
             <div class="body1">
-             <input class="input1" id="input1"/>                  
-             <button class="btn1">Set Reminder</button> 
+             <input class="input1" id="input1"/>
+             <button class="btn1">Set Reminder</button>
              <p id="errortxt"></p>
-            </div>   
+            </div>
             <div class="body2">
                 <h3 class="ht"></h3>
             </div>
-                               <button class="btn2">Cancel reminder</button> 
+                               <button class="btn2">Cancel reminder</button>
 
         </div>
 </div>
