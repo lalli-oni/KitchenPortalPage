@@ -24,6 +24,7 @@ $(document).ready(function(){
 
 
         $(".btn1").click(function(){
+          $(".ht").text("Reminder is running...");
            $.get("SetReminderScript.php?value=" + $("#input1").val(),function (data){
                     $(".ht").text(data);
                 });
