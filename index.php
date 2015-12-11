@@ -2,6 +2,8 @@
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
 </head>
 <body>
   <div id=mother>
@@ -10,7 +12,7 @@
         <p id=temp>21°C</p>
         <img id=lightPic src="./assets/sunPlaceholder.PNG"/>
       </div>
-        <div >
+        <div>
             <img id=header  src="./assets/KitchenPortal.jpg"/>
         </div>
     </div>
@@ -56,9 +58,22 @@
       </div>
       <div id=alertWindow>
         <div id=reminderWindow>
-            <input type="text">
-            <button id=setalarmbutton  onclick="SetReminder()">Set Reminder</button>
-
+          <script>
+          function setReminder(){
+            var statusText = document.getElementById("reminderStatus");
+            statusText.textContent = "sending request";
+            req =  $.get(".\\tmp\\SetReminderScript.php?value=" + $("#desiredTemp").val() , function (data) { statusText.textContent = "Started"; });
+          }
+          function stopReminder(){
+            var statusText = document.getElementById("reminderStatus");
+            statusText.textContent = "stopping request";
+            req =  $.get(".\\tmp\\StopReminderScript.php" , function (data) { statusText.textContent = "Stopped"; });
+          }
+          </script>
+            <input type="text" id="desiredTemp" value=""/>
+          <button id="setReminderButton" onclick="setReminder()">Set Reminder</button>
+          <button id="stopReminderButton" onclick="stopReminder()">Stop Reminder</button>
+          <p id="reminderStatus">You havent set a reminder, you dunce</p>
         </div>
           <div id=alarmWindow>
             <p>TimerWindow</p>
