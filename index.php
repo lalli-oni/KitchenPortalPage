@@ -92,7 +92,6 @@
             }
             </script>
         <button id=searchButton onclick="searchRecipe()">Search<br>
-
     </div>
     <div id=recipeResultWindow>
    </div>
