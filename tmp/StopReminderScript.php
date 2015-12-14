@@ -10,7 +10,6 @@ $response =  $ReminderStopper->StopReminder($parameters);
 
 if($response == 1){
     echo 'Done';
-
 }
 elseif ($response == 0) {
     echo 'Error';

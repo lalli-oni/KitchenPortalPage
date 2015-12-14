@@ -59,6 +59,7 @@
       <div id=alertWindow>
         <div id=reminderWindow>
           <script>
+          var isReminderOn = false;
           function setReminder(){
             var statusText = document.getElementById("reminderStatus");
             statusText.textContent = "sending request";
