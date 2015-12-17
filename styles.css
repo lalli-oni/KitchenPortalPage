@@ -1,124 +1,223 @@
-body {
-    background: powderblue;
+html{
+    min-height: 100%;
+    min-width: 100%;
+    background: url("./assets/food-salad-healthy-vegetables.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Open Sans', sans-serif;
+    overflow: hidden;
 }
-.clearfix {
-    overflow:auto;
-}
-div#mother {
-  border: 8px darkblue;
-  border-radius: 10px;
-  margin: 30px 100px 30px 100px ;
-  padding: 0px;
-  background-color: white;
-}
-div#topBar {
-  margin: 10px;
-  margin-top: -20px;
+body{
+
+    padding: 0 ;
+    margin: 0;
+    position: relative;
+    z-index: -10;
+
+
 
 }
-div#hud {
-  float:right;
-  margin-top: 80px;
-  margin-left: -10px;
-  margin-right:20px;
+#header2{
+    width: 100%;
+    height: 200px;
+    background-color: rgba(255,255,255,0.7);
+    vertical-align: top;
 
+    box-shadow: 4px 9px 10px 6px rgba(255,255,255,0.3);
+    -moz-box-shadow: 4px 9px 10px 6px rgba(255,255,255,0.3);
+    -webkit-box-shadow: 4px 9px 10px 6px rgba(0,0,0,0.7);
+    position: static;
+    z-index: 10;
 }
-p#temp {
-  color: black;
-  font-size: 30px;
-  font-family: sans-serif;
-
-}
-img#lightPic {
-  width: 60px;
-  height: 60px;
-  margin-top: -30px;
-}
-img#header{
-float:center;
-width:500px;
-height:200px;
-margin-top:10px;
-margin-left:100px;
-margin-bottom:-10px;
-}
-div#content {
-    border: 3px ridge deepskyblue;
-    border-radius: 5px;
-    background: white;
-    margin: 10px;
-    padding: 10px;
-
-}
-div#content.text {
-    margin: 15px;
-}
-div#reminderWindow {
-  border: 1px blue solid;
-  display: none;
-  background-color:azure;
-  margin-right:-3px;
-  margin-left:7px;
-  margin-top: 65px;
-  padding: 10px;
-  border-radius: 10px;
-}
-div#alarmWindow {
-  display: none;
-  background-color: azure;
-  margin-right:-3px;
-  margin-left:7px;
-  margin-top: 65px;
-  padding: 10px;
-  border-radius: 10px;
-}
-div#toggleReminderWrapper {
-  float: left;
-  width: 49%;
-}
-div#toggleAlarmWrapper {
-  float: right;
-  width: 49%;
-}
-button#toggleReminderButton {
-  background: deepskyblue;
-  color: white;
-  width: 100%;
-  height: 50px;
-  display: table-cell;
-  margin-left:6px;
-  font:cortana;
-}
-button#toggleAlarmButton {
-  background: deepskyblue;
-  color: white;
-  width: 100%;
-  height: 50px;
-  display: table-cell;
-  margin-left:6px;
-}
-div#recipeResultWindow {
-  display: none;
+#imgheader{
+    vertical-align: bottom;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-button  {
-    border-width: 2px;
-    border-color: white;
-    border-radius: 4px;
-    border-style: solid;
-    text-align: center;
-    text-decoration: none;
+#body2{
+    border: 1px #00cccc solid;
+    width:  60%;
+    opacity: 0.99;
+    background-color: rgba(255,255,255,0.7);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    padding-bottom: 80px;
+    position: relative;
+    z-index: -9;
+}
+#reminder{
+     display: inline-block;
+    font-size: 30px;
+    border: black 5px;
+    float: left;
+    height: 100%;
+    width: 40%;
+    border-right: black 2px solid; 
+    background-color: rgba(204,204,204,1);
+}
+#reminder > p{
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+    line-height: 75px;
+}
+
+#status{
+    font-size: 20px;
+     
+    display: block;
+  float: none;
+  height: 100%;
+    background-color: rgba(204,204,204,1);
+}
+
+#timer{
     display: inline-block;
-    font-size: 16px;
-    margin: 5px;
-    margin-left: -2px;
+    background-color: rgba(204,204,204,1);
+    font-size: 30px;
+    width: 40%;
+    height: 100%;
+    float: right;
+    border: yellow 5px;
+    border-left: black 2px solid;
 }
-div#recipeWindow
-{
-    margin:10px;
-    margin-top:15px;
+#timer > p{
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+    line-height: 75px;
 }
-div.fakeRecipeWrapper {
-  border: 1px ridge deepskyblue;
-  margin: 10px;
+#nav{
+    width: 100%;
+    height: 75px;
+    -webkit-box-shadow: 0px 10px 5px -2px rgba(0,0,0,0.7) ;
+    z-index: 10;
+    position: static;
+    text-align: center;
+        
+
+}
+#wrapper1{
+    padding-top: 15px;
+    position: relative;
+    z-index: -15;
+    width: 90%;
+    height: 250px;
+    border-radius: 0px 0px 15px 15px;
+    border: black 1px solid;
+    background-color: rgba(255,255,255,0.9);
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    -webkit-box-shadow: inset 0px -1px 10px 2px rgba(0,0,0,1);
+    text-align: center; 
+}
+#wrapper2{
+    position: relative;
+    z-index: -15;
+    width: 90%;
+    height: 250px;
+    border-radius: 15px 15px 15px 15px;
+        border: black 1px solid;
+
+    background: white;
+    margin-top: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    -webkit-box-shadow: inset 0px -1px 10px 2px rgba(0,0,0,1);
+    text-align: center; 
+    padding-top: 50px;
+}
+
+#reminderhelper{
+    clear: both;
+}
+#setterbox{
+    width: 300px;
+    height: 200px;
+    border: 1px solid black;
+    float: left;
+    margin-left: 100px;
+
+}
+#setterboxhider2{
+    width: 300px;
+    height: 200px;
+    border: 1px solid black;    
+    margin-left: 30px;
+    background: red;
+
+    z-index: 100;
+}
+#reminderinfo{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;  
+    float: right;
+    margin-right: 100px;
+    position: relative;
+    z-index: 100;
+
+}
+#timeinput{
+    display: inline-block;
+    text-align: center;
+    width: 95%;
+
+}
+
+.inputs{ 
+    float:left;
+    padding-left: 10px;
+}
+.inputs > input{
+    width: 230px;
+    height: 30px;
+    
+}
+#timebtns{
+    margin: 20px auto;
+    width: 50%;
+    position: relative;
+    z-index: 25;
+}
+#timebtns > button{
+    width: 100px;
+    height: 50px;
+}
+#timertime{
+    text-align: center;
+}
+#roomtemperature{
+    font-size: 30px;
+        vertical-align: middle;
+
+    
+}
+#roomimage{
+    margin-left: 20px;
+    width: 41px;
+    height: 41px;
+   
+}
+
+#roomstatustext{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#roomstatusdata{
+    margin: 0px 20px 0px 0px;
+        vertical-align: middle;
+
+}
+#image{
+        vertical-align: middle;
+
 }

@@ -19,12 +19,15 @@ else {
 $ReminderSetter = new Service1;
 $parameters = new StartReminder($var);
 $response =  $ReminderSetter->StartReminder($parameters);
+$response2 = $response->StartReminderResult;
 
-if($response == 1){
-    echo 'Done';
+if($response2 == 1){
+    echo "Done";
+    return;
 
 }
-elseif ($response == 0) {
-    echo 'Error';
+elseif ($response2 == 0) {
+    echo 'No data available';
+    return;
 }
 }

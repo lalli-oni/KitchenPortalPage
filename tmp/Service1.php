@@ -31,7 +31,7 @@ class Service1 extends \SoapClient
      * @param string $wsdl The wsdl file to use
      * @access public
      */
-    public function __construct(array $options = array(), $wsdl = 'http://localhost:51211/Service1.svc?singleWsdl')
+    public function __construct(array $options = array(), $wsdl = 'http://localhost:51211/Service1.svc?wsdl')
     {
       foreach (self::$classmap as $key => $value) {
     if (!isset($options['classmap'][$key])) {

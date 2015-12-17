@@ -1,116 +1,152 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.plugin.js"></script> 
+        <script type="text/javascript" src="js/jquery.countdown.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    </head>
 </head>
-</head>
+<script>
+    $(document).ready(function () {
+    var command;
+    getRoomStatus();
+    clearReminderInput();
+    $("#wrapper1").hide();
+    $("#wrapper2").hide();
+    
+    $("#btnCountdownStart").click(function () {
+
+    $.get("ValueCheck.php", {hours: $("#hoursinput").val(), minutes: $("#minutesinput").val(), seconds: $("#secondsinput").val()}, function (data) {
+
+    if (data == "Good")
+    {
+    $("#timertime").countdown("destroy");
+    $("#timertime").countdown({until: '+' + $("#hoursinput").val() + 'h ' + $("#minutesinput").val() + 'm ' + $("#secondsinout").val() + 's'});
+    } else {
+    $("#timertime").text(data);
+    }
+    });
+    });
+    $("#btnCountdownPause").click(function () {
+    $("#timertime").countdown("toggle");
+    });
+    $("#btnCountdownStop").click(function () {
+    $("#timertime").countdown("destroy");
+    });
+    
+    $("#searchButton").click(function () {
+    getRoomStatus();
+    });
+    
+    $("#reminder").click(function () {
+    $("#wrapper1").slideToggle();
+    });
+    $("#timer").click(function () {
+    $("#wrapper2").slideToggle();
+    });
+    
+    $("#setReminder").click(function () {
+    SetReminder();
+    });
+    $("#CancelReminder").click(function (){
+        cancelReminder();
+    });
+    });
+    
+    
+    function SetReminder() {
+    if ($.isNumeric($("#temperatureInput").val())) {
+    $("#temperatureactive").text($("#temperatureInput").val() + " °C");
+    }
+    $.get(".\\tmp\\SetReminderScript.php", {value: $("#temperatureInput").val()}, function (data) {
+    $("#statustext").text(data);
+    $("#temperatureactive").text("°C");
+    });
+    }    
+    function clearReminderInput() {
+    $("#hoursinput").val(0);
+    $("#minutesinput").val(0);
+    $("#secondsinput").val(0);
+    }
+    function getRoomStatus() {
+    $.get(".\\tmp\\GetRoomStatusScript.php", function (data) {
+    var arr = data.split(',');
+    $("#roomtemperature").text(arr[0]);
+    setTimeout(getRoomStatus, 3000);
+    });
+    }
+    function cancelReminder(){
+        $.get(".\\tmp\\StopReminderScript.php",function (data){
+            alert(data);
+        });
+    }
+</script>
 <body>
-  <div id=mother>
-    <div id=topBar>
-      <div id=hud>
-        <p id=temp>21°C</p>
-        <img id=lightPic src="./assets/sunPlaceholder.PNG"/>
-      </div>
-        <div>
-            <img id=header  src="./assets/KitchenPortal.jpg"/>
+    <div id="header2">
+
+        <img id="imgheader" src="./assets/KitchenPortal-bez bg.png"/>
+
+
+    </div>
+    <div id="body2">
+        <div id="nav">
+
+            <div id="reminder">
+                <p>REMINDER</p>
+            </div>
+            
+            <div id="timer">
+                <p>TIMER</p>
+            </div>
+            <div id="status">              
+                    <p id="roomstatustext">Room status</p>
+                    <p id="roomstatusdata">
+                    <span id="roomtemperature">200 °C</span>                 
+                    <img src="assets/sun94.png" id="image">
+                </p>
+                
+            </div>
+        </div>
+        <div id="wrapper1">
+            <div id="reminderhelper"> 
+                <div id="setterbox">
+                    <h2>Desired temperature</h2>
+                    <input id="temperatureInput"/>
+                    <button id="setReminder">Set reminder</button>
+                    <h3 id="statustext">&nbsp</h3>
+                </div>
+                <div id="setterboxhider"></div>
+                <div id="reminderinfo">
+                    <h1>Active reminder</h1>
+                    <h2 id="temperatureactive">°C</h2>
+                    <button id="CancelReminder">CANCEL</button>
+                </div>
+            </div>
+        </div>
+        <div id="wrapper2">
+            <div id="timeinput">
+                <div class="inputs">
+                    <input id="hoursinput"/>
+                    <label>Hours</label>
+                </div>
+                <div class="inputs">
+                    <input id="minutesinput"/>              
+                    <label>Minutes</label>
+                </div>
+                <div class="inputs">
+                    <input id="secondsinput"/>
+                    <label>Seconds</label>
+                </div>
+            </div>
+            <div id="timebtns">
+                <button id="btnCountdownStart">start</button>
+                <button id="btnCountdownPause">pause</button>
+                <button id="btnCountdownStop">stop</button>
+            </div>
+            <h1 id="timertime">00:00:00</h1>
         </div>
     </div>
-
-    <div id=content>
-      <div id=togglingBar>
-          <div id=toggleReminderWrapper>
-              <script>
-                function toggleReminderVisibility() {
-                  var alarmWindow = document.getElementById("alarmWindow");
-                  var reminderWindow = document.getElementById("reminderWindow");
-                  if (alarmWindow.style.display != "none") {
-                    alarmWindow.style.display = "none";
-                      reminderWindow.style.display = "block";
-                  } else if (reminderWindow.style.display != "none") {
-                    reminderWindow.style.display = "none";
-                      alarmWindow.style.display = "none";
-                  } else {
-                    reminderWindow.style.display = "block";
-                  }
-                }
-                </script>
-                <button id=toggleReminderButton onclick="toggleReminderVisibility()">Reminder</button>
-          </div>
-          <div id=toggleAlarmWrapper>
-              <script>
-                function toggleAlarmVisibility() {
-                  var alarmWindow = document.getElementById("alarmWindow");
-                  var reminderWindow = document.getElementById("reminderWindow");
-                  if (reminderWindow.style.display != "none") {
-                    reminderWindow.style.display = "none";
-                      alarmWindow.style.display = "block";
-                  } else if (alarmWindow.style.display != "none") {
-                    alarmWindow.style.display = "none";
-                      reminderWindow.style.display = "none";
-                  } else {
-                    alarmWindow.style.display = "block";
-                  }
-                }
-                </script>
-                <button id=toggleAlarmButton onclick="toggleAlarmVisibility()">Timer</button>
-          </div>
-      </div>
-      <div id=alertWindow>
-        <div id=reminderWindow>
-          <script>
-          var isReminderOn = false;
-          function setReminder(){
-            var statusText = document.getElementById("reminderStatus");
-            statusText.textContent = "sending request";
-            req =  $.get(".\\tmp\\SetReminderScript.php?value=" + $("#desiredTemp").val() , function (data) { statusText.textContent = "Started"; });
-          }
-          function stopReminder(){
-            var statusText = document.getElementById("reminderStatus");
-            statusText.textContent = "stopping request";
-            req =  $.get(".\\tmp\\StopReminderScript.php" , function (data) { statusText.textContent = "Stopped"; });
-          }
-          </script>
-            <input type="text" id="desiredTemp" value=""/>
-          <button id="setReminderButton" onclick="setReminder()">Set Reminder</button>
-          <button id="stopReminderButton" onclick="stopReminder()">Stop Reminder</button>
-          <p id="reminderStatus">You havent set a reminder, you dunce</p>
-        </div>
-          <div id=alarmWindow>
-            <p>TimerWindow</p>
-          </div>
-      </div>
-      <div id=recipeWindow>
-        <div id=recipeInputWrapper>
-          <form>
-            Recipe name:<br>
-            <input type="text" name="recipeName"><br>
-          </form>
-          <script>
-            function searchRecipe() {
-              var recipeResultWindow = document.getElementById("recipeResultWindow");
-              if (recipeResultWindow.style.display != "none") {
-                  recipeResultWindow.style.display = "block";
-
-                  var new_fakeRecipeBox = document.createElement('div');
-                  console.log(new_fakeRecipeBox);
-                  new_fakeRecipeBox.className = "fakeRecipeWrapper";
-                  console.log(new_fakeRecipeBox);
-                  var fakeRecipeText = document.createTextNode("This is a recipe");
-                  console.log(new_fakeRecipeBox);
-                  fakeRecipeText.className = "fakeRecipe";
-                  console.log(new_fakeRecipeBox);
-                  new_fakeRecipeBox.appendChild(fakeRecipeText);
-                  console.log(new_fakeRecipeBox);
-                  console.log(recipeResultWindow);
-                  recipeResultWindow.appendChild(new_fakeRecipeBox);
-              }
-            }
-            </script>
-        <button id=searchButton onclick="searchRecipe()">Search<br>
-    </div>
-    <div id=recipeResultWindow>
-   </div>
-  </div>
-  </body>
-  </html>
+</body>    
+</html>

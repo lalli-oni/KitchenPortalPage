@@ -7,7 +7,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 $ReminderStopper = new Service1;
 $parameters = new StopReminder();
 $response =  $ReminderStopper->StopReminder($parameters);
-
+$response3 = $response->StopReminderResult;
 if($response == 1){
     echo 'Done';
 }
