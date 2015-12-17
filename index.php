@@ -23,7 +23,7 @@
     if (data == "Good")
     {
     $("#timertime").countdown("destroy");
-    $("#timertime").countdown({until: '+' + $("#hoursinput").val() + 'h ' + $("#minutesinput").val() + 'm ' + $("#secondsinout").val() + 's'});
+    $("#timertime").countdown({onExpiry: CountdownDone, until: '+' + $("#hoursinput").val() + 'h ' + $("#minutesinput").val() + 'm ' + $("#secondsinput").val() + 's' , format: 'HMS'});
     } else {
     $("#timertime").text(data);
     }
@@ -48,14 +48,19 @@
     });
     
     $("#setReminder").click(function () {
+        var input = this;
+        input.disabled = true;
     SetReminder();
+      input.disabled= false;
     });
     $("#CancelReminder").click(function (){
         cancelReminder();
     });
     });
     
-    
+    function CountdownDone(){
+        alert("Countdown  finished !!");
+    }
     function SetReminder() {
     if ($.isNumeric($("#temperatureInput").val())) {
     $("#temperatureactive").text($("#temperatureInput").val() + " °C");
@@ -73,7 +78,7 @@
     function getRoomStatus() {
     $.get(".\\tmp\\GetRoomStatusScript.php", function (data) {
     var arr = data.split(',');
-    $("#roomtemperature").text(arr[0]);
+    $("#roomtemperature").text(arr[0] + " °C");
     setTimeout(getRoomStatus, 3000);
     });
     }
@@ -103,7 +108,7 @@
             <div id="status">              
                     <p id="roomstatustext">Room status</p>
                     <p id="roomstatusdata">
-                    <span id="roomtemperature">200 °C</span>                 
+                    <span id="roomtemperature"> °C</span>                 
                     <img src="assets/sun94.png" id="image">
                 </p>
                 

@@ -17,16 +17,17 @@ else {
 
    require_once './Service1.php';
 $ReminderSetter = new Service1;
-$parameters = new StartReminder($var);
-$response =  $ReminderSetter->StartReminder($parameters);
+$parameters = new StartReminder();
+$parameters->desiredTemperature = $var;
+$response = $ReminderSetter->StartReminder($parameters);
 $response2 = $response->StartReminderResult;
 
-if($response2 == 1){
+if($response2 === true){
     echo "Done";
     return;
 
 }
-elseif ($response2 == 0) {
+elseif ($response2 === false) {
     echo 'No data available';
     return;
 }
